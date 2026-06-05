@@ -172,6 +172,7 @@
       text-decoration: none;
       border-radius: 2px;
       transition: background 0.2s;
+      line-height: 1.4;
     }
 
     .btn-primary:hover { background: var(--orange-light); }
@@ -182,12 +183,13 @@
       border: 1px solid rgba(255,255,255,0.3);
       color: rgba(255,255,255,0.75);
       font-size: 13px;
-      font-weight: 400;
+      font-weight: 500;
       letter-spacing: 0.1em;
       text-transform: uppercase;
       text-decoration: none;
       border-radius: 2px;
       transition: border-color 0.2s, color 0.2s;
+      line-height: 1.4;
     }
 
     .btn-ghost:hover {
@@ -247,10 +249,13 @@
       background: var(--white);
       padding: 48px 36px;
       position: relative;
-      transition: transform 0.3s;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
-    .mission-card:hover { transform: translateY(-4px); }
+    .mission-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 16px 40px rgba(26,39,68,0.12);
+    }
 
     .mission-card::before {
       content: '';
@@ -267,6 +272,11 @@
       width: 64px;
       height: 64px;
       margin-bottom: 28px;
+      transition: transform 0.4s ease;
+    }
+
+    .mission-card:hover .mission-icon {
+      transform: scale(1.12) rotate(-3deg);
     }
 
     .mission-title {
@@ -308,7 +318,7 @@
       font-family: var(--font-display);
       font-size: 72px;
       font-weight: 400;
-      color: rgba(196, 98, 45, 0.15);
+      color: rgba(196, 98, 45, 0.55);
       line-height: 1;
       margin-bottom: 16px;
     }
@@ -484,10 +494,13 @@
       display: flex;
       gap: 28px;
       align-items: flex-start;
-      transition: background 0.2s;
+      transition: background 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
     }
 
-    .ref-card:hover { background: var(--orange-pale); }
+    .ref-card:hover {
+      background: var(--orange-pale);
+      transform: translateX(6px);
+    }
 
     .ref-sector-badge {
       flex-shrink: 0;
@@ -497,6 +510,11 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      transition: transform 0.3s ease;
+    }
+
+    .ref-card:hover .ref-sector-badge {
+      transform: scale(1.1);
     }
 
     .ref-body {}
@@ -745,7 +763,7 @@
 <nav>
   <a href="#hero" class="nav-logo">JGM<span>.</span>Advisory</a>
   <ul class="nav-links">
-    <li><a href="#missions">Ce que je fais</a></li>
+    <li><a href="#missions">Offre de service</a></li>
     <li><a href="#approche">Mon approche</a></li>
     <li><a href="#references">Références</a></li>
     <li><a href="#about">Qui je suis</a></li>
@@ -765,7 +783,7 @@
 
   <div class="hero-content">
     <p class="hero-eyebrow">Conseil indépendant — Lyon</p>
-    <h1 class="hero-title">Confiez-moi<br>vos projets<br>de transformation.<br><em>Je les prends<br>en main.</em></h1>
+    <h1 class="hero-title" id="hero-title"><span class="hero-line" style="display: block; opacity: 1; transform: translateY(0px); transition: opacity 0.6s, transform 0.6s;">Confiez-moi</span><span class="hero-line" style="display: block; opacity: 1; transform: translateY(0px); transition: opacity 0.6s 0.15s, transform 0.6s 0.15s;">vos projets</span><span class="hero-line" style="display: block; opacity: 1; transform: translateY(0px); transition: opacity 0.6s 0.3s, transform 0.6s 0.3s;">de transformation.</span><span class="hero-line" style="display: block; opacity: 1; transform: translateY(0px); transition: opacity 0.6s 0.45s, transform 0.6s 0.45s;">Je les prends</span><span class="hero-line" style="display: block; opacity: 1; transform: translateY(0px); transition: opacity 0.6s 0.6s, transform 0.6s 0.6s;">en main.</span></h1>
     <p class="hero-sub">Transformation, organisation, culture d'entreprise — des sujets complexes traités avec clarté, engagement et franchise.</p>
     <div class="hero-actions">
       <a href="#contact" class="btn-primary">Travaillons ensemble</a>
@@ -824,141 +842,217 @@
 </section>
 
 <!-- MISSIONS -->
-<section id="missions" class="fade-up">
+<section id="missions" style="padding-top:60px;padding-bottom:60px;">
   <p class="section-label">Domaines d'intervention</p>
-  <h2 class="section-title">Ce que je fais</h2>
-  <p class="section-intro">Du conseil opérationnel sur l'ensemble du 
-cycle de transformation — de la définition de la trajectoire à la mise 
-en œuvre sur le terrain.</p>
+  <h2 class="section-title">Offre de service</h2>
+  <p class="section-intro" style="margin-bottom:40px;">De la stratégie à l'opérationnel — sans frontière de périmètre.</p>
 
-  <div class="missions-grid">
+  <div class="hex-layout">
 
-    <!-- Transformation -->
-    <div class="mission-card fade-up">
-      <svg class="mission-icon" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
-        <!-- Deux flèches en rotation symbolisant la transformation -->
-        <circle cx="20" cy="24" r="10" fill="#e8eef5" stroke="#1a2744" stroke-width="1.5"></circle>
-        <circle cx="44" cy="40" r="10" fill="#fdf0e8" stroke="#C4622D" stroke-width="1.5"></circle>
-        <path d="M30 24 Q37 24 37 32 Q37 40 34 40" fill="none" stroke="#1a2744" stroke-width="2" stroke-linecap="round" marker-end="url(#arr1)"></path>
-        <path d="M34 40 Q27 40 27 32 Q27 24 30 24" fill="none" stroke="#C4622D" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="3 2"></path>
-        <defs>
-          <marker id="arr1" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto">
-            <path d="M2 1L8 5L2 9" fill="none" stroke="#1a2744" stroke-width="1.5" stroke-linecap="round"></path>
-          </marker>
-        </defs>
-      </svg>
-      <h3 class="mission-title">Transformation &amp; conduite du changement</h3>
-      <p class="mission-desc">Structuration et pilotage de programmes de
- transformation à forts enjeux humains et organisationnels. De la 
-stratégie à la mise en œuvre opérationnelle.</p>
+    <div class="hex-grid-wrap">
+      <div class="hex-abs active" style="left:0;top:0" data-index="0"><div class="hex-inner"><span class="hex-n">01</span><span class="hex-t">Accompagnement<br>opérationnel</span></div></div>
+      <div class="hex-abs" style="left:194px;top:0" data-index="1"><div class="hex-inner"><span class="hex-n">02</span><span class="hex-t">Design<br>d'organisation</span></div></div>
+      <div class="hex-abs" style="left:97px;top:156px" data-index="2"><div class="hex-inner"><span class="hex-n">03</span><span class="hex-t">Efficacité<br>opérationnelle</span></div></div>
+      <div class="hex-abs" style="left:291px;top:156px" data-index="3"><div class="hex-inner"><span class="hex-n">04</span><span class="hex-t">Culture<br>d'entreprise</span></div></div>
+      <div class="hex-abs" style="left:0;top:311px" data-index="4"><div class="hex-inner"><span class="hex-n">05</span><span class="hex-t">Mobilisation &amp;<br>engagement</span></div></div>
+      <div class="hex-abs" style="left:194px;top:311px" data-index="5"><div class="hex-inner"><span class="hex-n">06</span><span class="hex-t">Coaching &amp;<br>développement managérial</span></div></div>
     </div>
 
-    <!-- Organisation -->
-    <div class="mission-card fade-up">
-      <svg class="mission-icon" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
-        <rect x="8" y="28" width="14" height="28" rx="2" fill="#e8eef5" stroke="#1a2744" stroke-width="1.5"></rect>
-        <rect x="25" y="18" width="14" height="38" rx="2" fill="#e8eef5" stroke="#1a2744" stroke-width="1.5"></rect>
-        <rect x="42" y="8" width="14" height="48" rx="2" fill="#fdf0e8" stroke="#C4622D" stroke-width="1.5"></rect>
-      </svg>
-      <h3 class="mission-title">Organisation &amp; efficacité opérationnelle</h3>
-      <p class="mission-desc">Design d'organisations, définition de 
-modèles opérationnels, simplification des processus. Faire mieux, plus 
-vite, plus simplement.</p>
-    </div>
-
-    <!-- Culture -->
-    <div class="mission-card fade-up">
-      <svg class="mission-icon" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
-        <!-- Cercles concentriques + silhouettes -->
-        <circle cx="32" cy="32" r="24" fill="none" stroke="#e8eef5" stroke-width="8"></circle>
-        <circle cx="32" cy="32" r="24" fill="none" stroke="#1a2744" stroke-width="1.5"></circle>
-        <circle cx="32" cy="32" r="14" fill="none" stroke="#C4622D" stroke-width="1" stroke-dasharray="3 2" opacity="0.6"></circle>
-        <!-- 4 petites silhouettes sur le cercle extérieur -->
-        <circle cx="32" cy="10" r="4" fill="#1a2744"></circle>
-        <circle cx="54" cy="32" r="4" fill="#1a2744"></circle>
-        <circle cx="32" cy="54" r="4" fill="#C4622D"></circle>
-        <circle cx="10" cy="32" r="4" fill="#1a2744"></circle>
-      </svg>
-      <h3 class="mission-title">Culture d'entreprise</h3>
-      <p class="mission-desc">Diagnostic culturel, définition d'une 
-culture cible, identification des comportements attendus. Des programmes
- déployés jusqu'à l'international.</p>
-    </div>
-
-    <!-- Formation -->
-    <div class="mission-card fade-up">
-      <svg class="mission-icon" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
-        <!-- Chapeau de diplôme stylisé + silhouettes -->
-        <polygon points="32,10 58,24 32,36 6,24" fill="#e8eef5" stroke="#1a2744" stroke-width="1.5" stroke-linejoin="round"></polygon>
-        <path d="M18 28 L18 44 Q32 52 46 44 L46 28" fill="none" stroke="#1a2744" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-        <circle cx="32" cy="38" r="4" fill="#C4622D"></circle>
-        <line x1="55" y1="24" x2="55" y2="40" stroke="#1a2744" stroke-width="2" stroke-linecap="round"></line>
-        <circle cx="55" cy="42" r="3" fill="#C4622D"></circle>
-      </svg>
-      <h3 class="mission-title">Formation &amp; développement managérial</h3>
-      <p class="mission-desc">Conception et animation de programmes de 
-développement managérial. Des dispositifs sur-mesure, ancrés dans la 
-réalité du terrain.</p>
+    <!-- Détail -->
+    <div class="hex-detail" id="hex-detail">
+      <div id="hex-detail-inner" style="opacity: 1; transition: opacity 0.3s;"><div class="hex-detail-number">01</div><h3 class="hex-detail-title">Accompagnement opérationnel</h3><p class="hex-detail-desc">Structuration
+ et pilotage de projets de transformation, narratif et storytelling, 
+mise en place de dispositifs de conduite du changement. Un 
+accompagnement concret, du cadrage initial à la mise en œuvre terrain.</p><ul class="hex-detail-points"><li>Définition de la trajectoire et du plan de transformation</li><li>Conception du narratif et des dispositifs de changement</li><li>Accompagnement opérationnel au jour le jour</li><li>Interface entre équipes projet et parties prenantes</li><li>Production de livrables clés, suivi et ajustements</li></ul></div>
     </div>
 
   </div>
 
-  <p style="margin-top:32px;font-size:13px;font-weight:300;color:var(--gray-mid);text-align:center;">Pour
+  <p style="margin-top:40px;font-size:13px;font-weight:300;color:var(--gray-mid);text-align:center;">Pour
  les programmes de grande envergure, j'interviens également en équipe 
 avec des partenaires experts, selon les besoins de la mission.</p>
-
 </section>
+
+<style>
+  .hex-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: start;
+  }
+
+  .hex-grid-wrap {
+    position: relative;
+    width: 374px;
+    height: 518px;
+    flex-shrink: 0;
+  }
+
+  /* Hexagone via clip-path */
+  .hex-abs {
+    position: absolute;
+    width: 180px;
+    height: 207px;
+    cursor: pointer;
+  }
+
+  .hex-inner {
+    width: 100%;
+    height: 100%;
+    background: #243560;
+    clip-path: polygon(50% 0%, 100% 27%, 100% 73%, 50% 100%, 0% 73%, 0% 27%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 36px 24px;
+    text-align: center;
+    transition: background 0.22s ease, transform 0.22s ease;
+  }
+
+  .hex-abs:hover .hex-inner { background: #2d4278; transform: scale(1.05); }
+  .hex-abs.active .hex-inner { background: #C4622D; }
+  .hex-abs.active:hover .hex-inner { background: #d4734a; }
+
+  .hex-n {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 32px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.92);
+    line-height: 1;
+  }
+
+  .hex-t {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    color: rgba(255,255,255,0.85);
+    line-height: 1.45;
+  }
+
+  /* Détail */
+  .hex-detail {
+    background: #f4f3f0;
+    border-left: 3px solid #C4622D;
+    padding: 40px 40px;
+    min-height: 380px;
+    display: flex;
+    align-items: flex-start;
+    position: sticky;
+    top: 90px;
+  }
+
+  #hex-detail-inner { width: 100%; }
+
+  .hex-detail-empty { font-size: 15px; font-weight: 300; color: #6b6b6b; line-height: 1.8; }
+
+  .hex-detail-number {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 52px; font-weight: 400;
+    color: rgba(196,98,45,0.18);
+    line-height: 1; margin-bottom: 4px;
+  }
+
+  .hex-detail-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 26px; font-weight: 600;
+    color: #1a2744; margin-bottom: 20px; line-height: 1.2;
+  }
+
+  .hex-detail-desc {
+    font-size: 14px; font-weight: 300;
+    line-height: 1.8; color: #6b6b6b; margin-bottom: 24px;
+  }
+
+  .hex-detail-points { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .hex-detail-points li {
+    font-size: 13px; font-weight: 400; color: #3d3d3d;
+    padding-left: 18px; position: relative; line-height: 1.6;
+  }
+  .hex-detail-points li::before { content: '→'; position: absolute; left: 0; color: #C4622D; font-size: 11px; }
+
+  @media (max-width: 960px) {
+    .hex-layout { grid-template-columns: 1fr; }
+    .hex-detail { position: static; border-left: none; border-top: 3px solid #C4622D; }
+  }
+</style>
+
+<script>
+(function() {
+  const offres = [
+    { num: '01', title: 'Accompagnement opérationnel', desc: "Structuration et pilotage de projets de transformation, narratif et storytelling, mise en place de dispositifs de conduite du changement. Un accompagnement concret, du cadrage initial à la mise en œuvre terrain.", points: ["Définition de la trajectoire et du plan de transformation","Conception du narratif et des dispositifs de changement","Accompagnement opérationnel au jour le jour","Interface entre équipes projet et parties prenantes","Production de livrables clés, suivi et ajustements"] },
+    { num: '02', title: "Design d'organisation", desc: "Refonte de directions, départements ou services au travers de méthodes collaboratives.", points: ["Diagnostic organisationnel et analyse des dysfonctionnements","Design de la cible organisationnelle","Définition des rôles, responsabilités et modes de fonctionnement","Accompagnement de la mise en œuvre"] },
+    { num: '03', title: "Efficacité opérationnelle", desc: "Optimisation des processus et des modes de fonctionnement pour faire mieux, plus vite, plus fiable — sans complexifier.", points: ["Cartographie et analyse des processus existants","Identification des irritants et des gisements de gains","Refonte des modes opératoires et des outils de travail","Accompagnement du déploiement et mesure des résultats"] },
+    { num: '04', title: "Culture d'entreprise", desc: "Définition et déploiement de nouvelles façons de faire au sein de l'organisation, et impacts sur le modèle managérial.", points: ["Diagnostic culturel (méthodes quantitatives et qualitatives)","Co-construction d'une culture cible","Identification des comportements attendus","Déploiement à grande échelle, y compris à l'international"] },
+    { num: '05', title: "Mobilisation & engagement", desc: "Design de dispositifs visant à mobiliser toute une organisation autour d'une transformation ou d'un sujet stratégique.", points: ["Conception du narratif et de la promesse de transformation","Design d'événements fédérateurs","Animation de communautés managériales","Mesure de l'engagement et de l'adhésion"] },
+    { num: '06', title: "Coaching & développement managérial", desc: "Accompagnement managérial sur la posture et les compétences, individuel ou collectif.", points: ["Coaching individuel de managers et dirigeants","Programmes de développement collectif","Design et animation de séminaires managériaux","Amélioration des modes de coopération en équipe de direction"] }
+  ];
+
+  const cells = document.querySelectorAll('.hex-abs');
+  cells.forEach(cell => cell.addEventListener('click', () => selectHex(parseInt(cell.dataset.index))));
+
+  function selectHex(i) {
+    cells.forEach((c, j) => c.classList.toggle('active', j === i));
+    const inner = document.getElementById('hex-detail-inner');
+    inner.style.opacity = '0';
+    setTimeout(() => {
+      const o = offres[i];
+      inner.innerHTML = `<div class="hex-detail-number">${o.num}</div><h3 class="hex-detail-title">${o.title}</h3><p class="hex-detail-desc">${o.desc}</p><ul class="hex-detail-points">${o.points.map(p=>`<li>${p}</li>`).join('')}</ul>`;
+      inner.style.transition = 'opacity 0.3s ease';
+      inner.style.opacity = '1';
+    }, 180);
+  }
+
+  selectHex(0);
+})();
+</script>
 
 <!-- APPROCHE -->
 <section id="approche">
-  <p class="section-label">Ma façon de travailler</p>
-  <h2 class="section-title" style="color:white">Ce qui guide<br>chaque mission.</h2>
+  <p class="section-label">Mon approche</p>
+  <h2 class="section-title" style="color:white">Ce qui me guide,<br>à chacune de<br>mes missions.</h2>
   <p class="section-intro">Pas une méthode. Une façon d'être.</p>
 
   <div class="valeurs-grid" style="grid-template-columns: repeat(2, 1fr);">
 
     <div class="valeur-card fade-up">
       <div class="valeur-number">01</div>
-      <h3 class="valeur-title">Pragmatisme</h3>
-      <ul class="valeur-list">
-        <li>Je rends lisible ce qui est complexe — dans ma façon de travailler comme dans mes livrables</li>
-        <li>Je m'assure que les recommandations atterrissent, pas seulement qu'elles soient produites</li>
-        <li>Je m'adapte à ce dont vous avez vraiment besoin, même quand ça dépasse le périmètre initial</li>
-      </ul>
+      <h3 class="valeur-title">Rigueur</h3>
+      <p class="valeur-text">Démarche structurée, livrables soignés, 
+travail soutenu… je réponds aux standards du conseil avec sérieux — du 
+cadrage stratégique à la mise en œuvre terrain — et je reste impliqué à 
+tous les niveaux, du début à la fin.</p>
       <div class="valeur-accent"></div>
     </div>
 
     <div class="valeur-card fade-up">
       <div class="valeur-number">02</div>
-      <h3 class="valeur-title">Exigence</h3>
-      <ul class="valeur-list">
-        <li>J'ai un point de vue, et je le partage — même quand il est inconfortable</li>
-        <li>Je ne valide pas ce qui me semble inutile ou contre-productif</li>
-        <li>Je mesure mon travail à ce qui change réellement, pas à ce que je produis</li>
-      </ul>
+      <h3 class="valeur-title">Engagement</h3>
+      <p class="valeur-text">Mon rôle est de vous aider à avancer, y 
+compris sur les sujets les plus opérationnels. Je m'implique 
+concrètement, quelle que soit la nature de la tâche. Votre réussite est 
+mon seul indicateur de succès.</p>
       <div class="valeur-accent"></div>
     </div>
 
     <div class="valeur-card fade-up">
       <div class="valeur-number">03</div>
-      <h3 class="valeur-title">Proximité</h3>
-      <ul class="valeur-list">
-        <li>Je sais que vous avez un métier, des contraintes, une organisation qui tourne — je prends tout ça en compte</li>
-        <li>Je m'adapte à votre rythme et à votre réalité, pas l'inverse</li>
-        <li>J'interviens aussi bien en Comité de Direction que sur le terrain, avec le même niveau d'attention</li>
-        <li>Je ne suis pas là pour occuper l'espace — je suis là pour vous faciliter la vie</li>
-      </ul>
+      <h3 class="valeur-title">Nuance</h3>
+      <p class="valeur-text">Les situations complexes méritent des 
+réponses sur-mesure. J'arrive avec une méthode et des questions autant 
+qu'avec des réponses — et je ne confonds pas assertivité et certitude.</p>
       <div class="valeur-accent"></div>
     </div>
 
     <div class="valeur-card fade-up">
       <div class="valeur-number">04</div>
-      <h3 class="valeur-title">Expérience</h3>
-      <ul class="valeur-list">
-        <li>22 ans de conseil, des secteurs variés, des projets de toutes tailles et tous niveaux de complexité</li>
-        <li>Une capacité à m'adapter plutôt qu'à appliquer des méthodes toutes faites</li>
-        <li>Le recul pour dire ce qui fonctionne — et ce qui ne fonctionnera pas</li>
-      </ul>
+      <h3 class="valeur-title">Adaptabilité</h3>
+      <p class="valeur-text">Votre agenda, vos contraintes, votre rythme
+ — mon intervention s'ajuste à votre réalité. Je sais que toute mission 
+crée du travail supplémentaire : je fais en sorte de le minimiser. Du 
+Comité de Direction aux équipes terrain, je m'adapte à vos 
+interlocuteurs.</p>
       <div class="valeur-accent"></div>
     </div>
 
@@ -967,8 +1061,8 @@ avec des partenaires experts, selon les besoins de la mission.</p>
 
 <!-- RÉFÉRENCES -->
 <section id="references" class="fade-up">
-  <p class="section-label">Quelques missions</p>
-  <h2 class="section-title">Ce que j'ai fait</h2>
+  <p class="section-label">Références</p>
+  <h2 class="section-title">Quelques missions réalisées</h2>
   <p class="section-intro">Une sélection de missions récentes — les noms de clients restent confidentiels, les enjeux parlent d'eux-mêmes.</p>
 
   <div class="refs-grid">
@@ -1019,7 +1113,7 @@ avec des partenaires experts, selon les besoins de la mission.</p>
       </div>
       <div class="ref-body">
         <p class="ref-sector">Santé</p>
-        <p class="ref-mission">Déploiement d'un projet d'entreprise sur la charge de travail — 1 000+ collaborateurs</p>
+        <p class="ref-mission">Déploiement d'un projet d'entreprise sur la charge de travail — 1&nbsp;000+ collaborateurs</p>
       </div>
     </div>
 
@@ -1061,7 +1155,7 @@ avec des partenaires experts, selon les besoins de la mission.</p>
       </div>
       <div class="ref-body">
         <p class="ref-sector">Conseil en ingénierie</p>
-        <p class="ref-mission">Structuration et accompagnement de la forte croissance</p>
+        <p class="ref-mission">Accompagnement d'une start-up pour gérer sa croissance</p>
       </div>
     </div>
 
@@ -1102,75 +1196,166 @@ avec des partenaires experts, selon les besoins de la mission.</p>
 
 <!-- QUI JE SUIS -->
 <section id="about">
-  <!-- Illustration placeholder photo -->
-  <div class="about-visual">
-    <svg width="100%" viewBox="0 0 360 440" xmlns="http://www.w3.org/2000/svg">
-      <rect width="360" height="440" rx="4" fill="#e8eef5"></rect>
-      <!-- Silhouette stylisée -->
-      <circle cx="180" cy="130" r="52" fill="#b5c4d8"></circle>
-      <path d="M108 230 Q100 300 96 380 L264 380 Q260 300 252 230 Q216 210 180 210 Q144 210 108 230Z" fill="#b5c4d8"></path>
-      <!-- Col costume -->
-      <path d="M156 210 L180 240 L204 210" fill="none" stroke="#8fa5bf" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-      <path d="M156 210 L140 230" fill="none" stroke="#8fa5bf" stroke-width="1.5" stroke-linecap="round"></path>
-      <path d="M204 210 L220 230" fill="none" stroke="#8fa5bf" stroke-width="1.5" stroke-linecap="round"></path>
-      <!-- Label placeholder -->
-      <text x="180" y="415" text-anchor="middle" font-family="'DM Sans', sans-serif" font-size="12" fill="#8fa5bf" letter-spacing="0.1em">PHOTO À VENIR</text>
-    </svg>
-  </div>
+  <div class="about-wrapper">
 
-  <div class="about-content">
-    <p class="section-label">Qui je suis</p>
-    <h2 class="section-title">Jean-Gabriel Michaud</h2>
-    <p class="section-intro">Consultant indépendant basé à Lyon, 
-j'accompagne les directions générales et fonctionnelles dans leurs 
-programmes de transformation depuis plus de 20 ans. Diplômé de l'ESCP, 
-certifié coach (ESSEC), j'interviens aussi bien auprès des Comités de 
-Direction que des équipes terrain.</p>
+    <!-- Photo -->
+    <div class="about-photo-col">
+      <div class="about-photo-frame">
+        <img src="data:image/webp;base64,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" alt="Jean-Gabriel Michaud" class="about-photo">
+      </div>
+      <!-- Stats clés -->
+      <div class="about-stats">
+        <div class="about-stat">
+          <span class="about-stat-num">22</span>
+          <span class="about-stat-label">ans d'expérience</span>
+        </div>
+        <div class="about-stat">
+          <span class="about-stat-num" style="font-size:20px;">Multi</span>
+          <span class="about-stat-label">sectoriel</span>
+        </div>
+        <div class="about-stat">
+          <span class="about-stat-num" style="font-size:16px;">France &amp;</span>
+          <span class="about-stat-label">international</span>
+        </div>
+      </div>
+    </div>
 
-    <p style="font-size:14px;font-weight:300;line-height:1.8;color:var(--gray-mid);margin-bottom:40px;padding:20px 24px;border-left:2px solid var(--orange);background:var(--white);">Pour
+    <!-- Contenu -->
+    <div class="about-content">
+      <p class="section-label">Qui je suis</p>
+      <h2 class="section-title">Jean-Gabriel Michaud</h2>
+
+      <p class="about-intro">Consultant indépendant basé à Lyon, 
+j'accompagne depuis plus de 22 ans des organisations de toutes tailles —
+ PME en croissance, ETI et grands groupes internationaux — sur leurs 
+projets de transformation, d'organisation et de conduite du changement. 
+J'interviens aussi bien auprès des Comités de Direction que des équipes 
+terrain, sur des sujets stratégiques comme sur des chantiers 
+opérationnels.</p>
+
+      <p style="font-size:14px;font-weight:300;line-height:1.8;color:var(--gray-mid);margin-bottom:40px;padding:16px 20px;border-left:2px solid var(--orange);background:var(--white);">Pour
  les programmes de grande envergure, j'interviens également aux côtés de
  partenaires experts — cabinets spécialisés ou consultants indépendants —
  selon les besoins spécifiques de la mission.</p>
 
-    <ul class="parcours-list">
-      <li class="parcours-item">
-        <span class="parcours-date">2021 —</span>
-        <div>
-          <p class="parcours-role">JGM Advisory</p>
-          <p class="parcours-org">Conseil indépendant · Lyon</p>
-        </div>
-      </li>
-      <li class="parcours-item">
-        <span class="parcours-date">2015 — 2021</span>
-        <div>
-          <p class="parcours-role">Directeur Associé, en charge du bureau de Lyon</p>
-          <p class="parcours-org">Alixio Group · Lyon</p>
-        </div>
-      </li>
-      <li class="parcours-item">
-        <span class="parcours-date">2005 — 2015</span>
-        <div>
-          <p class="parcours-role">Senior Manager, Stratégie &amp; Organisation</p>
-          <p class="parcours-org">Equinox Consulting · Paris</p>
-        </div>
-      </li>
-      <li class="parcours-item">
-        <span class="parcours-date">2004 — 2005</span>
-        <div>
-          <p class="parcours-role">Credit Analyst — Amérique Latine</p>
-          <p class="parcours-org">Crédit Agricole CIB · New York</p>
-        </div>
-      </li>
-      <li class="parcours-item">
-        <span class="parcours-date">Formation</span>
-        <div>
-          <p class="parcours-role">ESCP Business School — Master Finance</p>
-          <p class="parcours-org">Certification Coach · ESSEC Business School</p>
-        </div>
-      </li>
-    </ul>
+      <!-- Parcours -->
+      <ul class="parcours-list">
+        <li class="parcours-item">
+          <span class="parcours-date">2021 —</span>
+          <div>
+            <p class="parcours-role">Consultant indépendant</p>
+            <p class="parcours-org">JGM Advisory · Lyon</p>
+          </div>
+        </li>
+        <li class="parcours-item">
+          <span class="parcours-date">2015 — 2021</span>
+          <div>
+            <p class="parcours-role">Directeur Associé, en charge du bureau de Lyon</p>
+            <p class="parcours-org">Alixio Change Management · Lyon</p>
+          </div>
+        </li>
+        <li class="parcours-item">
+          <span class="parcours-date">2005 — 2015</span>
+          <div>
+            <p class="parcours-role">Directeur, Stratégie &amp; Organisation</p>
+            <p class="parcours-org">Equinox Consulting · Paris</p>
+          </div>
+        </li>
+        <li class="parcours-item">
+          <span class="parcours-date">2004 — 2005</span>
+          <div>
+            <p class="parcours-role">Analyste financier — Amérique Latine</p>
+            <p class="parcours-org">Crédit Agricole CIB · New York</p>
+          </div>
+        </li>
+        <li class="parcours-item">
+          <span class="parcours-date">Formation</span>
+          <div>
+            <p class="parcours-role">ESCP Business School — Programme Grande École, majeure Finance</p>
+            <p class="parcours-org">Certification Coach · ESSEC Business School</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+
   </div>
 </section>
+
+<style>
+  .about-wrapper {
+    display: grid;
+    grid-template-columns: 340px 1fr;
+    gap: 72px;
+    align-items: start;
+  }
+
+  .about-photo-col {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .about-photo-frame {
+    width: 100%;
+    aspect-ratio: 3/4;
+    overflow: hidden;
+    border-radius: 0;
+    position: relative;
+  }
+
+  .about-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+  }
+
+  .about-stats {
+    display: flex;
+    gap: 0;
+    border-top: 1px solid var(--gray-light);
+  }
+
+  .about-stat {
+    flex: 1;
+    padding: 16px 0;
+    border-right: 1px solid var(--gray-light);
+    text-align: center;
+  }
+  .about-stat:last-child { border-right: none; }
+
+  .about-stat-num {
+    display: block;
+    font-family: var(--font-display);
+    font-size: 32px;
+    font-weight: 600;
+    color: var(--navy);
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+
+  .about-stat-label {
+    display: block;
+    font-size: 11px;
+    font-weight: 400;
+    color: var(--gray-mid);
+    line-height: 1.3;
+  }
+
+  .about-intro {
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 1.8;
+    color: var(--gray-mid);
+    margin-bottom: 28px;
+  }
+
+  @media (max-width: 900px) {
+    .about-wrapper { grid-template-columns: 1fr; }
+    .about-photo-frame { max-width: 280px; }
+  }
+</style>
 
 <!-- CONTACT -->
 <section id="contact">
@@ -1202,16 +1387,56 @@ Direction que des équipes terrain.</p>
 </footer>
 
 <script>
-  // Scroll animations
+  // ── 1. Scroll fade-up
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-      }
+      if (entry.isIntersecting) entry.target.classList.add('visible');
     });
   }, { threshold: 0.1 });
-
   document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+  // ── 2. Animation hero : apparition ligne par ligne
+  const heroTitle = document.getElementById('hero-title');
+  if (heroTitle) {
+    const html = heroTitle.innerHTML;
+    // Découper sur les <br> en préservant les balises <em>
+    const lines = html.split('<br>');
+    heroTitle.innerHTML = lines.map((line, i) =>
+      `<span class="hero-line" style="display:block;opacity:0;transform:translateY(20px);transition:opacity 0.6s ease ${i * 0.15}s, transform 0.6s ease ${i * 0.15}s">${line}</span>`
+    ).join('');
+
+    setTimeout(() => {
+      document.querySelectorAll('.hero-line').forEach(line => {
+        line.style.opacity = '1';
+        line.style.transform = 'translateY(0)';
+      });
+    }, 200);
+  }
+
+  // ── 3. Animation numéros de valeurs au scroll
+  const valeurNumbers = document.querySelectorAll('.valeur-number');
+  const numberObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const el = entry.target;
+        const target = parseInt(el.textContent);
+        let current = 0;
+        const duration = 800;
+        const step = duration / target;
+        el.style.transition = 'color 0.4s ease';
+        const interval = setInterval(() => {
+          current++;
+          el.textContent = String(current).padStart(2, '0');
+          if (current >= target) {
+            clearInterval(interval);
+            el.style.color = 'rgba(196,98,45,0.55)';
+          }
+        }, step);
+        numberObserver.unobserve(el);
+      }
+    });
+  }, { threshold: 0.5 });
+  valeurNumbers.forEach(el => numberObserver.observe(el));
 </script>
 
 
