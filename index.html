@@ -160,36 +160,35 @@
       align-items: center;
     }
 
-    .btn-primary {
+    .btn-primary, .btn-ghost {
       display: inline-block;
       padding: 14px 36px;
-      background: var(--orange);
-      color: var(--white);
+      font-family: var(--font-body);
       font-size: 13px;
       font-weight: 500;
       letter-spacing: 0.1em;
       text-transform: uppercase;
       text-decoration: none;
       border-radius: 2px;
-      transition: background 0.2s;
       line-height: 1.4;
+      box-sizing: border-box;
+      text-align: center;
     }
 
-    .btn-primary:hover { background: var(--orange-light); }
+    .btn-primary {
+      background: var(--orange);
+      color: var(--white);
+      border: 1px solid var(--orange);
+      transition: background 0.2s;
+    }
+
+    .btn-primary:hover { background: var(--orange-light); border-color: var(--orange-light); }
 
     .btn-ghost {
-      display: inline-block;
-      padding: 14px 36px;
-      border: 1px solid rgba(255,255,255,0.3);
+      background: transparent;
       color: rgba(255,255,255,0.75);
-      font-size: 13px;
-      font-weight: 500;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      text-decoration: none;
-      border-radius: 2px;
+      border: 1px solid rgba(255,255,255,0.3);
       transition: border-color 0.2s, color 0.2s;
-      line-height: 1.4;
     }
 
     .btn-ghost:hover {
@@ -318,7 +317,7 @@
       font-family: var(--font-display);
       font-size: 72px;
       font-weight: 400;
-      color: rgba(196, 98, 45, 0.55);
+      color: rgba(196, 98, 45, 0.9);
       line-height: 1;
       margin-bottom: 16px;
     }
@@ -783,11 +782,11 @@
 
   <div class="hero-content">
     <p class="hero-eyebrow">Conseil indépendant — Lyon</p>
-    <h1 class="hero-title" id="hero-title"><span class="hero-line" style="display: block; opacity: 1; transform: translateY(0px); transition: opacity 0.6s, transform 0.6s;">Confiez-moi</span><span class="hero-line" style="display: block; opacity: 1; transform: translateY(0px); transition: opacity 0.6s 0.15s, transform 0.6s 0.15s;">vos projets</span><span class="hero-line" style="display: block; opacity: 1; transform: translateY(0px); transition: opacity 0.6s 0.3s, transform 0.6s 0.3s;">de transformation.</span><span class="hero-line" style="display: block; opacity: 1; transform: translateY(0px); transition: opacity 0.6s 0.45s, transform 0.6s 0.45s;">Je les prends</span><span class="hero-line" style="display: block; opacity: 1; transform: translateY(0px); transition: opacity 0.6s 0.6s, transform 0.6s 0.6s;">en main.</span></h1>
+    <h1 class="hero-title" id="hero-title"><span class="hero-line" style="display: block; opacity: 1; transform: translateY(0px); transition: opacity 0.6s, transform 0.6s;">Confiez-moi</span><span class="hero-line" style="display: block; opacity: 1; transform: translateY(0px); transition: opacity 0.6s 0.15s, transform 0.6s 0.15s;">vos projets</span><span class="hero-line" style="display: block; opacity: 1; transform: translateY(0px); transition: opacity 0.6s 0.3s, transform 0.6s 0.3s;">de transformation.</span><span class="hero-line" style="display: block; opacity: 1; transform: translateY(0px); transition: opacity 0.6s 0.45s, transform 0.6s 0.45s; color: var(--orange);">Je les prends</span><span class="hero-line" style="display: block; opacity: 1; transform: translateY(0px); transition: opacity 0.6s 0.6s, transform 0.6s 0.6s; color: var(--orange);">en main.</span></h1>
     <p class="hero-sub">Transformation, organisation, culture d'entreprise — des sujets complexes traités avec clarté, engagement et franchise.</p>
     <div class="hero-actions">
-      <a href="#contact" class="btn-primary">Travaillons ensemble</a>
-      <a href="#missions" class="btn-ghost">Mes missions</a>
+      <a href="#contact" class="btn-primary" style="min-width:200px;">Travaillons ensemble</a>
+      <a href="#missions" class="btn-ghost" style="min-width:200px;">Mes missions</a>
     </div>
   </div>
 
@@ -1011,7 +1010,7 @@ avec des partenaires experts, selon les besoins de la mission.</p>
 <!-- APPROCHE -->
 <section id="approche">
   <p class="section-label">Mon approche</p>
-  <h2 class="section-title" style="color:white">Ce qui me guide,<br>à chacune de<br>mes missions.</h2>
+  <h2 class="section-title">Ce qui me guide, à chacune de mes missions.</h2>
   <p class="section-intro">Pas une méthode. Une façon d'être.</p>
 
   <div class="valeurs-grid" style="grid-template-columns: repeat(2, 1fr);">
@@ -1398,11 +1397,10 @@ opérationnels.</p>
   // ── 2. Animation hero : apparition ligne par ligne
   const heroTitle = document.getElementById('hero-title');
   if (heroTitle) {
-    const html = heroTitle.innerHTML;
-    // Découper sur les <br> en préservant les balises <em>
-    const lines = html.split('<br>');
+    const lines = ['Confiez-moi', 'vos projets', 'de transformation.', 'Je les prends', 'en main.'];
+    const orangeLines = [3, 4]; // indices des lignes en orange
     heroTitle.innerHTML = lines.map((line, i) =>
-      `<span class="hero-line" style="display:block;opacity:0;transform:translateY(20px);transition:opacity 0.6s ease ${i * 0.15}s, transform 0.6s ease ${i * 0.15}s">${line}</span>`
+      `<span class="hero-line" style="display:block;opacity:0;transform:translateY(20px);transition:opacity 0.6s ease ${i * 0.15}s, transform 0.6s ease ${i * 0.15}s;${orangeLines.includes(i) ? 'color:var(--orange);' : ''}">${line}</span>`
     ).join('');
 
     setTimeout(() => {
