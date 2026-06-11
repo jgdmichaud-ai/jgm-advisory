@@ -783,7 +783,7 @@
 
   <div class="hero-content">
     <p class="hero-eyebrow">Conseil indépendant — Lyon</p>
-    <h1 class="hero-title" id="hero-title"><span class="hero-line" style="display: block; opacity: 1; transform: translateY(0px); transition: opacity 0.6s, transform 0.6s;">Confiez-moi</span><span class="hero-line" style="display: block; opacity: 1; transform: translateY(0px); transition: opacity 0.6s 0.15s, transform 0.6s 0.15s;">vos projets</span><span class="hero-line" style="display: block; opacity: 1; transform: translateY(0px); transition: opacity 0.6s 0.3s, transform 0.6s 0.3s;">de transformation.</span><span class="hero-line" style="display: block; opacity: 1; transform: translateY(0px); transition: opacity 0.6s 0.45s, transform 0.6s 0.45s; color: var(--orange);">Je les prends</span><span class="hero-line" style="display: block; opacity: 1; transform: translateY(0px); transition: opacity 0.6s 0.6s, transform 0.6s 0.6s; color: var(--orange);">en main.</span></h1>
+    <h1 class="hero-title" id="hero-title"><span class="hero-line" style="display: block; opacity: 1; transform: translateY(0px); transition: opacity 0.6s, transform 0.6s;">J'accompagne de bout en bout</span><span class="hero-line" style="display: block; opacity: 1; transform: translateY(0px); transition: opacity 0.6s 0.15s, transform 0.6s 0.15s;">vos transformations</span><span class="hero-line" style="display: block; opacity: 1; transform: translateY(0px); transition: opacity 0.6s 0.3s, transform 0.6s 0.3s;"><span style="color:var(--orange)">à forts enjeux</span></span><span class="hero-line" style="display: block; opacity: 1; transform: translateY(0px); transition: opacity 0.6s 0.45s, transform 0.6s 0.45s; color: var(--orange);"><span style="color:var(--orange)">organisationnels et humains.</span></span></h1>
     <p class="hero-sub">Réorganisation, processus, modes de fonctionnement, management — des sujets complexes traités avec rigueur et engagement.</p>
     <div class="hero-actions">
       <a href="#contact" class="btn-primary" style="min-width:200px;">Travaillons ensemble</a>
@@ -1470,7 +1470,7 @@ qu'il touche à tous les aspects du quotidien de travail.</p>
   // ── 2. Animation hero : apparition ligne par ligne
   const heroTitle = document.getElementById('hero-title');
   if (heroTitle) {
-    const lines = ['Confiez-moi', 'vos projets', 'de transformation.', 'Je les prends', 'en main.'];
+    const lines = ['J\'accompagne de bout en bout', 'vos transformations', '<span style="color:var(--orange)">à forts enjeux</span>', '<span style="color:var(--orange)">organisationnels et humains.</span>'];
     const orangeLines = [3, 4]; // indices des lignes en orange
     heroTitle.innerHTML = lines.map((line, i) =>
       `<span class="hero-line" style="display:block;opacity:0;transform:translateY(20px);transition:opacity 0.6s ease ${i * 0.15}s, transform 0.6s ease ${i * 0.15}s;${orangeLines.includes(i) ? 'color:var(--orange);' : ''}">${line}</span>`
